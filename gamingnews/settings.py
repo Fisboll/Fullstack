@@ -31,7 +31,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = True
 
 ALLOWED_HOSTS = ['fullstack-fisboll.herokuapp.com', 'localhost',
-    '8000-fisboll-fullstack-6pg18hwmw5.us2.codeanyapp.com']
+                 '8000-fisboll-fullstack-6pg18hwmw5.us2.codeanyapp.com']
 
 
 # Application definition
