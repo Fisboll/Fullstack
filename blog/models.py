@@ -23,17 +23,14 @@ class post(models.Model):
     status = models.IntegerField(choices=STATUS, default=0)
     likes = models.ManyToManyField(User, related_name='game_likes', blank=True)
 
+    class Meta:
+        ordering = ['-created_on']
 
-class Meta:
-    ordering = ['-created_on']
+    def __str__(self):
+        return self.title
 
-
-def __str__(self):
-    return self.title
-
-
-def number_of_likes(self):
-    return self.likes.count()
+    def number_of_likes(self):
+        return self.likes.count()
 
 
 class comments(models.Model):
@@ -45,12 +42,10 @@ class comments(models.Model):
     approved = models.BooleanField(default=False)
     email = models.EmailField()
 
+    class Meta:
+        ordering = ["created_on"]
 
-class Meta:
-    ordering = ["created_on"]
-
-
-def __str__(self):
-    return f"comment {self.content} by {self.name}"
+    def __str__(self):
+        return f"comment {self.content} by {self.name}"
 
 # Create your models here.
