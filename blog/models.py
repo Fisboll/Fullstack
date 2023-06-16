@@ -38,12 +38,12 @@ class comments(models.Model):
                              related_name='comments')
     name = models.CharField(max_length=60)
     content = models.TextField()
-    created_on = models.DataTimeField(auto_now_add=True)
+    created_on = models.DateTimeField(auto_now_add=True)
     approved = models.BooleanField(default=False)
     email = models.EmailField()
 
     class Meta:
-        ordering = ["created_on"]
+        ordering = ['created_on']
 
     def __str__(self):
         return f"comment {self.content} by {self.name}"
