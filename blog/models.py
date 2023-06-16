@@ -9,6 +9,16 @@ SUBGENRES = (
     (8, 'Apocalyptic'), (9, 'MMORPG'))
 
 
+class game(models.Model):
+    name = models.CharField(50)
+    platform = models.CharField(100)
+    image = CloudinaryField('image', default='placeholder')
+    description = models.TextField(2000)
+    release_date = models.DateTimeField(setattr)
+    posts = models.ForeignKey(User, on_delete=models.CASCADE,
+                              related_name='game_posts')
+
+
 class post(models.Model):
     title = models.CharField(max_length=50)
     subTitle = models.CharField(max_length=100)
@@ -47,5 +57,24 @@ class comments(models.Model):
 
     def __str__(self):
         return f"comment {self.content} by {self.name}"
+
+
+class UserProfile(models.Model):
+    """
+    Extends User model.
+    Allows User to add further information in
+    addition to that required for Registration.
+    """
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    display_name = models.CharField(max_length=25)
+    first_name = models.CharField(max_length=30)
+    last_name = models.CharField(max_length=30)
+    location = models.CharField(max_length=50)
+    is_mod = models.BooleanField(default=False)
+    user_image = CloudinaryField('image', default='placeholder')
+    owner = models.BigIntegerField(unique=True)
+
+    def __str__(self):
+        return f'{self.user.username} Profile
 
 # Create your models here.
