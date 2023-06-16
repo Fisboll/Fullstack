@@ -24,7 +24,7 @@ class post(models.Model):
     likes = models.ManyToManyField(User, related_name='game_likes', blank=True)
 
     class Meta:
-        ordering = ['-created_on']
+        ordering = ['-created_at']
 
     def __str__(self):
         return self.title
