@@ -21,5 +21,36 @@ class post(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     status = models.IntegerField(choices=STATUS, default=0)
+    likes = models.ManyToManyField(User, related_name='game_likes', blank=True)
+
+
+class Meta:
+    ordering = ['-created_on']
+
+
+def __str__(self):
+    return self.title
+
+
+def number_of_likes(self):
+    return self.likes.count()
+
+
+class comments(models.Model):
+    post = models.ForeignKey(User, on_delete=models.CASCADE,
+                             related_name='comments')
+    name = models.CharField(max_length=60)
+    content = models.TextField()
+    created_on = models.DataTimeField(auto_now_add=True)
+    approved = models.BooleanField(default=False)
+    email = models.EmailField()
+
+
+class Meta:
+    ordering = ["created_on"]
+
+
+def __str__(self):
+    return f"comment {self.content} by {self.name}"
 
 # Create your models here.
