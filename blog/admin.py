@@ -12,16 +12,20 @@ class GameAdmin(SummernoteModelAdmin):
 @admin.register(Post)
 class PostAdmin(SummernoteModelAdmin):
 
+    list_display = ('title', 'subtitle', 'created_by')
+    seatch_fields = ['title', 'content']
+    prepopulated_fields = {'title': ('title', 'subtitle')}
     list_filler = ('status', 'created_on')
-    list_display = ('subgrenres', 'title')
-    seatch_fields = ['foreign_key_realted_fieldname']
     Summernote_fields = ('content')
 
 
 @admin.register(Comment)
 class CommentAdmin(SummernoteModelAdmin):
 
-    Summernote_fields = ('content')
+    list_display = ('name', 'post', 'created_on')
+    list_filter = ('created_on', 'name')
+    search_fields = ('name', 'email', 'body')
+    actions = ['approve_comments']
 
 
 @admin.register(User_profile)

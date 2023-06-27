@@ -23,7 +23,7 @@ class Game(models.Model):
 
 class Post(models.Model):
     title = models.CharField(max_length=50)
-    subTitle = models.CharField(max_length=100)
+    subtitle = models.CharField(max_length=100)
     created_by = models.ForeignKey(User, on_delete=models.CASCADE,
                                    related_name='post_user')
     content = models.TextField(max_length=2000)
