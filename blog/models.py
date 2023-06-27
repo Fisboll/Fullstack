@@ -4,13 +4,14 @@ from cloudinary.models import CloudinaryField
 
 STATUS = ((0, 'Draft'), (1, 'Published'))
 SUBGENRES = (
-    (0, 'Strategy'), (1, 'Survival and horror'), (2, 'Fantasy'), (3, 'Sci-Fi'),
+    (0, 'None'), (1, 'Survival and horror'), (2, 'Fantasy'), (3, 'Sci-Fi'),
     (4, 'Action-adventure'), (5, 'Comedy'), (7, 'Cyberpunk'),
-    (8, 'Apocalyptic'), (9, 'MMORPG'))
+    (8, 'Apocalyptic'), (9, 'MMORPG'), (10, 'Strategy'))
 
 
 class Game(models.Model):
     name = models.CharField(max_length=50)
+    subgrenres = models.IntegerField(choices=SUBGENRES)
     platform = models.CharField(max_length=100)
     image = CloudinaryField('image', default='placeholder')
     description = models.TextField(max_length=2000)

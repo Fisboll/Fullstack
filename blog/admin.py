@@ -12,6 +12,9 @@ class GameAdmin(SummernoteModelAdmin):
 @admin.register(Post)
 class PostAdmin(SummernoteModelAdmin):
 
+    list_filler = ('status', 'created_on')
+    list_display = ('subgrenres', 'title')
+    seatch_fields = ['foreign_key_realted_fieldname']
     Summernote_fields = ('content')
 
 
