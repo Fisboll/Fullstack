@@ -1,0 +1,106 @@
+{% load static %}
+{% load cloudinary %}
+
+{% block title %}
+Playstation
+{% endblock %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="This will be a gaming website.">
+    <meta name="keywords" content="games, gaming, consoles">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Playstation Forums</title>
+</head>
+
+<body>
+    <header>
+        <a href="index.html">
+            <h1 id="logo">Gaming news</h1>
+        </a>
+        <nav>
+            <ul id="menu">
+                <li><a href="log-in.html">Log in</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li>
+                    <label for="forums">Forums:</label>
+                    <select id="forums">
+                        <option value="index.html">Forums</option>
+                        <option value="nintendo.html">Nintendo</option>
+                        <option value="xbox.html">Xbox</option>
+                        <option value="oculus.html">VR</option>
+                        <option value="pc.html">PC</option>
+                        <option value="playstation.html" selected>Playstation</option>
+                    </select>
+                </li>
+                <li><a href="index.html">Home</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="hero-outer-forums" style="height:300px;">
+        <div id="playstation-image"></div>
+    </section>
+    <div id="header-forum">
+        <h2>Playstation Forums.</h2>
+        <h3>Where you may discuss Future Playstation games and consoles.</h3>
+    </div>
+    <section>
+        <Div id="forum-container">
+            <h1>Discussion</h1>
+            <p>Coming soon!</p>
+            <div class="forum-section">
+                <h3>PS4/Darksouls PVP?</h3>
+                <p>I've set up an Arena in Anor londo, Anyone wanna join me in some jolly PVP?</p>
+                <h5>19523 comments <i class="fa-solid fa-comments"></i></h5>
+            </div>
+            <div class="forum-section">
+                <h3>PS5/Demonsouls</h3>
+                <p>Can anyone get the old Demonsouls to work on their PS5? Since I switched consoles it just breaks for
+                    me.</p>
+                <h5>27 comments <i class="fa-solid fa-comments"></i></h5>
+            </div>
+            <div class="forum-section">
+                <h3>Ps4/Darksouls remasterd</h3>
+                <p>Can anyone please give me any tips about Smaugh and Ornstien? I'm kind of new to this game but Two on
+                    one feels cheating and scary!</p>
+                <h5>9523 comments <i class="fa-solid fa-comments"></i></h5>
+            </div>
+            <div class="forum-section">
+                <h3>PSvita/uncharted</h3>
+                <p>Hey, I've been running through this game three times now. I always seem to miss some collectables, do
+                    anyone know where they all are?</p>
+                <h5>5234 comments <i class="fa-solid fa-comments"></i></h5>
+            </div>
+            <div class="forum-section">
+                <h3>PS5/FF7 Crisis Core</h3>
+                <p>This is the first time I'm playing Final fantasy remake. Is anyone else sad for the girls death? I
+                    was bawling my eyes out.</p>
+                <h5>23253 comments <i class="fa-solid fa-comments"></i></h5>
+            </div>
+        </Div>
+        <footer style="height:10px;">
+            <ul class="social-networks-forums">
+                <li><a href="https://www.facebook.com/" target="_blank" rel="noopener"
+                        aria-label="Visit our Facebook page (opens in a new tab)">Facebook <i
+                            class="fa-brands fa-facebook"></i></a></li>
+                <li><a href="https://twitter.com/home" target="_blank" rel="noopener"
+                        aria-label="Visit our Twitter page (opens in a new tab)">Twitter <i
+                            class="fa-brands fa-twitter"></i></a></li>
+                <li><a href="https://www.instagram.com/" target="_blank" rel="noopener"
+                        aria-label="Visit our Instagram page (opens in a new tab)">Instagram <i
+                            class="fa-brands fa-instagram"></i></a></li>
+                <li><a href="https://discord.com/" target="_blank" rel="noopener"
+                        aria-label="Join our Discord(opens in a new tab)">Discord <i
+                            class="fa-brands fa-discord"></i></a></li>
+            </ul>
+        </footer>
+    </section>
+    <script src="https://kit.fontawesome.com/c071e38e1e.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
