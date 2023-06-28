@@ -50,13 +50,13 @@ class Comment(models.Model):
                              related_name='comments')
     name = models.CharField(max_length=60)
     content = models.TextField()
-    created_on = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(auto_now_add=True)
     created_by = models.ForeignKey(User, on_delete=models.CASCADE,
                                    related_name='comment_user')
     email = models.EmailField()
 
     class Meta:
-        ordering = ['created_on']
+        ordering = ['created_at']
 
     def __str__(self):
         return f"comment {self.name} by {self.created_by}"

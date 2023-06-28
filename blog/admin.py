@@ -15,15 +15,15 @@ class PostAdmin(SummernoteModelAdmin):
     list_display = ('title', 'subtitle', 'created_by')
     seatch_fields = ['title', 'content']
     prepopulated_fields = {'title': ('title', 'subtitle')}
-    list_filler = ('status', 'created_on')
+    list_filler = ('status', 'created_at')
     Summernote_fields = ('content')
 
 
 @admin.register(Comment)
 class CommentAdmin(SummernoteModelAdmin):
 
-    list_display = ('name', 'post', 'created_on')
-    list_filter = ('created_on', 'name')
+    list_display = ('name', 'post', 'created_at')
+    list_filter = ('created_at', 'name')
     search_fields = ('name', 'email', 'body')
     actions = ['approve_comments']
 
