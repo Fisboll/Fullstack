@@ -3,7 +3,7 @@ from django.views import generic, View
 from django.views.generic import CreateView, UpdateView, DeleteView, TemplateView, ListView
 from django.http import HttpResponseRedirect
 from django.views import generic
-from .models import Post
+from .models import Post, Game
 
 
 class HomePage (TemplateView):
@@ -13,10 +13,12 @@ class HomePage (TemplateView):
     template_name = 'index.html'
 
 
-class Playstation (TemplateView):
+class Playstation (generic.ListView):
     """
     Render Playstation page
     """
+    model = Game
+    queryset = Game.objects.filter(platform='Playstation')
     template_name = 'playstation.html'
 
 
