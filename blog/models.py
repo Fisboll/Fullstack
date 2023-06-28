@@ -4,8 +4,8 @@ from cloudinary.models import CloudinaryField
 
 STATUS = ((0, 'Draft'), (1, 'Published'))
 PLATFORM = (
-    ('Playstation', 'Playstation'), ('Xbox', 'Xbox'),
-)
+    ('Playstation', 'Playstation'), ('Xbox', 'Xbox'), ('PC', 'PC'), ('VR', 'VR'),
+    ('Nintendo', 'Nintendo'))
 SUBGENRES = (
     (0, 'None'), (1, 'Survival and horror'), (2, 'Fantasy'), (3, 'Sci-Fi'),
     (4, 'Action-adventure'), (5, 'Comedy'), (7, 'Cyberpunk'),
@@ -15,7 +15,7 @@ SUBGENRES = (
 class Game(models.Model):
     name = models.CharField(max_length=50)
     subgenres = models.IntegerField(choices=SUBGENRES)
-    platform = models.CharField(max_length=100)
+    platform = models.IntegerField(choices=PLATFORM)
     image = CloudinaryField('image', default='placeholder')
     description = models.TextField(max_length=2000)
     release_date = models.DateTimeField(setattr)

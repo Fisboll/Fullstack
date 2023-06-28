@@ -19,6 +19,7 @@ class Playstation (generic.ListView):
     """
     model = Game
     queryset = Game.objects.filter(platform='Playstation')
+    queryset = Game.objects.filter(platform='Xbox')
     template_name = 'playstation.html'
 
 
