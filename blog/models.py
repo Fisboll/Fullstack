@@ -1,12 +1,12 @@
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
-from multiselecfield import MultiSelectField
+from multiselectfield import MultiSelectField
 
 STATUS = ((0, 'Draft'), (1, 'Published'))
 PLATFORM = (
-    ('Playstation', 'Playstation'), ('Xbox', 'Xbox'), ('PC', 'PC'), ('VR', 'VR'),
-    ('Nintendo', 'Nintendo'))
+    ('Playstation', 'Playstation'), ('Xbox', 'Xbox'), ('PC', 'PC'),
+    ('VR', 'VR'), ('Nintendo', 'Nintendo'))
 SUBGENRES = (
     (0, 'None'), (1, 'Survival and horror'), (2, 'Fantasy'), (3, 'Sci-Fi'),
     (4, 'Action-adventure'), (5, 'Comedy'), (7, 'Cyberpunk'),
