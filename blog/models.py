@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
+from multiselectfield import MultiSelectField
 
 STATUS = ((0, 'Draft'), (1, 'Published'))
 PLATFORM = (
@@ -15,7 +16,7 @@ SUBGENRES = (
 class Game(models.Model):
     name = models.CharField(max_length=50)
     subgenres = models.IntegerField(choices=SUBGENRES)
-    platform = models.IntegerField(choices=PLATFORM)
+    platform = MultiSelectField(choices=PLATFORM)
     image = CloudinaryField('image', default='placeholder')
     description = models.TextField(max_length=2000)
     release_date = models.DateTimeField(setattr)
