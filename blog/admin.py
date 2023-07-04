@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post, Game, Comment, User_profile
+from .models import Post, Game, Comment, User_profile, Platform
 from django_summernote.admin import SummernoteModelAdmin
 
 
@@ -7,6 +7,12 @@ from django_summernote.admin import SummernoteModelAdmin
 class GameAdmin(SummernoteModelAdmin):
 
     Summernote_fields = ('content')
+
+
+@admin.register(Platform)
+class PlatformAdmin(SummernoteModelAdmin):
+    
+    list_display = ('title', 'image', 'description')
 
 
 @admin.register(Post)

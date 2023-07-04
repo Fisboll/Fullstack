@@ -3,7 +3,7 @@ from django.views import generic, View
 from django.views.generic import CreateView, UpdateView, DeleteView, TemplateView, ListView
 from django.http import HttpResponseRedirect
 from django.views import generic
-from .models import Post, Game
+from .models import Post, Game, Platform
 
 
 class HomePage (TemplateView):
@@ -23,18 +23,18 @@ class Playstation (generic.ListView):
     template_name = 'playstation.html'
 
 
-class PostList(generic.ListView):
-    model = Post
-    queryset = Post.objects.filter(status=1).order_by("-created_at")
+class PlatformList(generic.ListView):
+    model = Platform
+    context_object_name = "platform_list"
     template_name = "index.html"
     paginate_by = 6
 
 
 class PostDetail(View):
 
-    def get(self, request, slug, *args, **kwargs):
+    def get(self, request, *args, **kwargs):
         queryset = Post.objects.filter(status=1)
-        post = get_object_or_404(queryset, slug=slug)
+        post = get_object_or_404(queryset)
         comments = post.comment.filter(approved=True).order_by('created_at')
         liked = False
         if post.likes.filter(id=self.request.user.id).exist():

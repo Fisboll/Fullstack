@@ -25,6 +25,12 @@ class Game(models.Model):
         return self.name.__str__()
 
 
+class Platform(models.Model):
+    title = models.CharField(max_length=50)
+    image = CloudinaryField('image', default='placeholder')
+    description = models.CharField(max_length=200)
+
+
 class Post(models.Model):
     title = models.CharField(max_length=50)
     subtitle = models.CharField(max_length=100)
