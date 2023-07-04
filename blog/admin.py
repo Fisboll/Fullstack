@@ -11,7 +11,7 @@ class GameAdmin(SummernoteModelAdmin):
 
 @admin.register(Platform)
 class PlatformAdmin(SummernoteModelAdmin):
- 
+
     list_display = ('title', 'image', 'description')
 
 
