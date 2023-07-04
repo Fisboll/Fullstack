@@ -19,15 +19,12 @@ Home
                     <div class="card mb-4">
                         <div class="card-body">
                             <div class="image-container">
-                                {% if "placeholder" in platform.image %}
+                                {% if "placeholder" in platform.image.url %}
                                 <img class="card-img-top"
                                     src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg">
                                 {% else %}
-                                <img class="card-img-top" src=" {{ platform.image }}">
+                                <img class="card-img-top" src="{{ platform.image.url }}">
                                 {% endif %}
-                                <div class="image-flash">
-                                    <p class="title">Title: {{ platform.title }}</p>
-                                </div>
                             </div>
                             <hr />
                         </div>

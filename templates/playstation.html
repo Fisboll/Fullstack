@@ -8,50 +8,58 @@ Playstation
 
 {% block content %}
 
-<section class="hero-outer-forums" style="height:300px;">
-    <div id="playstation-image"></div>
-</section>
-<div id="header-forum">
-    <h2>Playstation Forums.</h2>
-    <h3>Where you may discuss Future Playstation games and consoles.</h3>
-    {% for game in game_list %}
-    {{game.name}}
-    {% endfor %}
-</div>
-<section>
-    <div id="forum-container">
-        <h1>Discussion</h1>
-        <p>Coming soon!</p>
-        <div class="forum-section">
-            <h3>PS4/Darksouls PVP?</h3>
-            <p>I've set up an Arena in Anor londo, Anyone wanna join me in some jolly PVP?</p>
-            <h5>19523 comments <i class="fa-solid fa-comments"></i></h5>
+<div class="card-body">
+    <div class="image-container">
+        {% if "placeholder" in platform.image.playstation.url %}
+        <img class="card-img-top" src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg">
+        {% else %}
+        <img class="card-img-top" src="{{ platform.image.playstation.url }}">
+        {% endif %}
+        <div class="image-flash">
+            <p class="title">Playstation Forum</p>
         </div>
-        <div class="forum-section">
-            <h3>PS5/Demonsouls</h3>
-            <p>Can anyone get the old Demonsouls to work on their PS5? Since I switched consoles it just breaks for
-                me.</p>
-            <h5>27 comments <i class="fa-solid fa-comments"></i></h5>
-        </div>
-        <div class="forum-section">
-            <h3>Ps4/Darksouls remasterd</h3>
-            <p>Can anyone please give me any tips about Smaugh and Ornstien? I'm kind of new to this game but Two on
-                one feels cheating and scary!</p>
-            <h5>9523 comments <i class="fa-solid fa-comments"></i></h5>
-        </div>
-        <div class="forum-section">
-            <h3>PSvita/uncharted</h3>
-            <p>Hey, I've been running through this game three times now. I always seem to miss some collectables, do
-                anyone know where they all are?</p>
-            <h5>5234 comments <i class="fa-solid fa-comments"></i></h5>
-        </div>
-        <div class="forum-section">
-            <h3>PS5/FF7 Crisis Core</h3>
-            <p>This is the first time I'm playing Final fantasy remake. Is anyone else sad for the girls death? I
-                was bawling my eyes out.</p>
-            <h5>23253 comments <i class="fa-solid fa-comments"></i></h5>
-        </div>
-    </Div>
-</section>
+    </div>
+    <div id="header-forum">
+        <h2>Playstation Forums.</h2>
+        <h3>Where you may discuss Future Playstation games and consoles.</h3>
+        {% for game in game_list %}
+        {{game.name}}
+        {% endfor %}
+    </div>
+    <section>
+        <div id="forum-container">
+            <h1>Discussion</h1>
+            <p>Coming soon!</p>
+            <div class="forum-section">
+                <h3>PS4/Darksouls PVP?</h3>
+                <p>I've set up an Arena in Anor londo, Anyone wanna join me in some jolly PVP?</p>
+                <h5>19523 comments <i class="fa-solid fa-comments"></i></h5>
+            </div>
+            <div class="forum-section">
+                <h3>PS5/Demonsouls</h3>
+                <p>Can anyone get the old Demonsouls to work on their PS5? Since I switched consoles it just breaks for
+                    me.</p>
+                <h5>27 comments <i class="fa-solid fa-comments"></i></h5>
+            </div>
+            <div class="forum-section">
+                <h3>Ps4/Darksouls remasterd</h3>
+                <p>Can anyone please give me any tips about Smaugh and Ornstien? I'm kind of new to this game but Two on
+                    one feels cheating and scary!</p>
+                <h5>9523 comments <i class="fa-solid fa-comments"></i></h5>
+            </div>
+            <div class="forum-section">
+                <h3>PSvita/uncharted</h3>
+                <p>Hey, I've been running through this game three times now. I always seem to miss some collectables, do
+                    anyone know where they all are?</p>
+                <h5>5234 comments <i class="fa-solid fa-comments"></i></h5>
+            </div>
+            <div class="forum-section">
+                <h3>PS5/FF7 Crisis Core</h3>
+                <p>This is the first time I'm playing Final fantasy remake. Is anyone else sad for the girls death? I
+                    was bawling my eyes out.</p>
+                <h5>23253 comments <i class="fa-solid fa-comments"></i></h5>
+            </div>
+        </Div>
+    </section>
 
-{% endblock %}
+    {% endblock %}
