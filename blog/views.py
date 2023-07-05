@@ -28,7 +28,15 @@ class PlatformList(generic.ListView):
     model = Platform
     context_object_name = "platform_list"
     template_name = "index.html"
-    paginate_by = 6
+    paginate_by = 5
+
+
+class GameList(generic.ListView):
+    model = Game
+    queryset = Game.objects.filter(platform='Playstation')
+    context_object_name = "game_list"
+    template_name = "playstation.html"
+    paginate_by = 8
 
 
 class PostDetail(View):
@@ -47,12 +55,13 @@ class PostDetail(View):
             {
                 "post": post,
                 "comments": Comments,
+                "commented": False,
                 "liked": liked,
                 "comment_form": CommentForm()
             },
         )
 
-        def post(self, request, *args, **kwargs):
+    def post(self, request, *args, **kwargs):
 
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset)

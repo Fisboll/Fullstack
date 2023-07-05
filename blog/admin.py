@@ -6,6 +6,9 @@ from django_summernote.admin import SummernoteModelAdmin
 @admin.register(Game)
 class GameAdmin(SummernoteModelAdmin):
 
+    list_display = ('name', 'image', 'description')
+    search_fields = ['name', 'content']
+    list_filler = ('status', 'created-at')
     Summernote_fields = ('content')
 
 
