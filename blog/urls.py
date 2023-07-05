@@ -6,4 +6,5 @@ urlpatterns = [
     path('playstation/', views.Playstation.as_view(), name='playstation'),
     path('<int:id>/', views.PostDetail.as_view(), name='post_detail'),
     path('', views.PlatformList.as_view(), name='home'),
+    path('like/<slug:slug>', views.PostLike.as_view(), name='post_like')
 ]

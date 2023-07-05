@@ -91,3 +91,14 @@ class PostDetail(View):
                 "liked": liked
             },
         )
+
+
+class PostLike(View):
+
+    def post(self, request):
+        post = get_object_or_404(Post)
+
+        if post.likes.filter(id=request.user.id).exists():
+            post.likes.remove(request.user)
+        else:
+            pose.likes.add(request.user)
