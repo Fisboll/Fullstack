@@ -3,6 +3,7 @@ from django.views import generic, View
 from django.views.generic import CreateView, UpdateView, DeleteView, TemplateView, ListView
 from django.http import HttpResponseRedirect
 from django.views import generic
+from django.contrib.messages.views import SuccessMessageMixin
 from .models import Post, Game, Platform
 from .forms import CommentForm
 
@@ -14,14 +15,15 @@ class HomePage (TemplateView):
     template_name = 'index.html'
 
 
-class Playstation (generic.ListView):
+class Game (generic.ListView):
     """
-    Render Playstation page
+    Render Game page
     """
     model = Game
     queryset = Game.objects.filter(platform='Playstation')
     queryset = Game.objects.filter(platform='Xbox')
-    template_name = 'playstation.html'
+    queryset = Game.objects.filter(platform='Nintendo')
+    template_name = 'game.html'
 
 
 class PlatformList(generic.ListView):
@@ -32,11 +34,11 @@ class PlatformList(generic.ListView):
 
 
 class GameList(generic.ListView):
+
     model = Game
-    queryset = Game.objects.filter(platform='Playstation')
     context_object_name = "game_list"
-    template_name = "playstation.html"
-    paginate_by = 8
+    template_name = "game.html"
+    paginate_by = 6
 
 
 class PostDetail(View):
@@ -54,7 +56,7 @@ class PostDetail(View):
             "post_detail.html",
             {
                 "post": post,
-                "comments": Comments,
+                "comments": comments,
                 "commented": False,
                 "liked": liked,
                 "comment_form": CommentForm()
@@ -101,4 +103,11 @@ class PostLike(View):
         if post.likes.filter(id=request.user.id).exists():
             post.likes.remove(request.user)
         else:
-            pose.likes.add(request.user)
+            post.likes.add(request.user)
+
+
+class CommentSuccess(SuccessMessageMixin, CreateView):
+    model = CommentForm
+    success_url = '/success/'
+    success_message = "%(name)s commment was created successfully"
+    TimeoutError = 3000

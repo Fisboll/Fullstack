@@ -23,7 +23,7 @@ Home
                                 <img class="card-img-top"
                                     src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg">
                                 {% else %}
-                                <img class="card-img-top" src="{{ platform.image.url }}">
+                                <a href="{% url 'game' %}"><img class="card-img-top" src="{{ platform.image.url }}"></a>
                                 {% endif %}
                             </div>
                             <hr />

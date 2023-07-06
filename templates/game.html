@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+{% load cloudinary %}
+
+{% block title %}
+Game
+{% endblock %}
+
+{% block content %}
+<div class="card-body">
+    <div class="image-container">
+        {% if "placeholder" in platform.image.playstation.url %}
+        <img class="card-img-top" src="https://codeinstitute.s3.amazonaws.com/fullstack/blog/default.jpg">
+        {% else %}
+        <img class="card-img-top" src="{{ platform.image.playstation.url }}">
+        {% endif %}
+        <div class="image-flash">
+            <p class="title">Playstation Forum</p>
+        </div>
+    </div>
+    <div id="header-forum">
+        <h2>Playstation Forums.</h2>
+        <h3>Where you may discuss Future Playstation games and consoles.</h3>
+    </div>
+</div>
+<div>
+    {% for game in game_list %}
+    {{game.name}}
+    {% endfor %}
+</div>
+{% endblock %}

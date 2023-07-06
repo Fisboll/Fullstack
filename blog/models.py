@@ -26,6 +26,10 @@ class Game(models.Model):
 
 
 class Platform(models.Model):
+    platform = [
+        ('Playstation', 'Playstation'), ('Xbox', 'Xbox'), ('Pc', 'Pc'),
+        ('VR', 'VR'), ('Nintendo', 'Nintendo')
+    ]
     title = models.CharField(max_length=50)
     image = CloudinaryField('image', default='placeholder')
     description = models.CharField(max_length=200)
