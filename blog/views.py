@@ -15,17 +15,6 @@ class HomePage (TemplateView):
     template_name = 'index.html'
 
 
-class Game (generic.ListView):
-    """
-    Render Game page
-    """
-    model = Game
-    queryset = Game.objects.filter(platform='Playstation')
-    queryset = Game.objects.filter(platform='Xbox')
-    queryset = Game.objects.filter(platform='Nintendo')
-    template_name = 'game.html'
-
-
 class PlatformList(generic.ListView):
     model = Platform
     context_object_name = "platform_list"
@@ -36,6 +25,7 @@ class PlatformList(generic.ListView):
 class GameList(generic.ListView):
 
     model = Game
+    queryset = Game.objects.filter()
     context_object_name = "game_list"
     template_name = "game.html"
     paginate_by = 6

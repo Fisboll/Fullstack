@@ -8,8 +8,8 @@ PLATFORM = (
     ('Playstation', 'Playstation'), ('Xbox', 'Xbox'), ('PC', 'PC'),
     ('VR', 'VR'), ('Nintendo', 'Nintendo'))
 SUBGENRES = (
-    (0, 'None'), (1, 'Survival and horror'), (2, 'Fantasy'), (3, 'Sci-Fi'),
-    (4, 'Action-adventure'), (5, 'Comedy'), (7, 'Cyberpunk'),
+    (0, 'none'), (1, 'Survival and horror'), (2, 'Fantasy'), (3, 'Sci-Fi'),
+    (5, 'Action-adventure'), (5, 'Comedy'), (7, 'Cyberpunk'),
     (8, 'Apocalyptic'), (9, 'MMORPG'), (10, 'Strategy'))
 
 
@@ -23,6 +23,9 @@ class Game(models.Model):
 
     def __str__(self):
         return self.name.__str__()
+
+    def __Str__(self):
+        return self.subgenres.choices[1]
 
 
 class Platform(models.Model):
