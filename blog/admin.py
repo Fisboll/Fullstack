@@ -23,7 +23,7 @@ class PostAdmin(SummernoteModelAdmin):
 
     list_display = ('title', 'subtitle', 'created_by')
     seatch_fields = ['title', 'content']
-    prepopulated_fields = {'title': ('title', 'subtitle')}
+    prepopulated_fields = {'slug': ('title',)}
     list_filler = ('status', 'created_at')
     Summernote_fields = ('content')
 

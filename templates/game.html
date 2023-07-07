@@ -6,16 +6,18 @@ Game
 
 {% block content %}
 
-<div class="container-fluid">
-    <div class="row">
-
-        <!-- Blog Entries Column -->
-        <div class="col-12 mt-3 left">
-            <div class="row">
-                {% for game in game_list %}
-                <div class="col-md-4">
-                    <div class="card mb-4">
-                        <div class="card-body">
+<div class="image-flash">
+    <p class="title">{{ platform.title }} Forum</p>
+</div>
+<div class="card-body">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Blog Entries Column -->
+            <div class="col-12 mt-3 left">
+                <div class="row">
+                    {% for game in game_list %}
+                    <div class="col-md-4">
+                        <div class="card mb-4">
                             <div class="image-container">
                                 {% if "placeholder" in game.image.url %}
                                 <img class="card-img-top"
@@ -24,38 +26,39 @@ Game
                                 <img class="card-img-top" src=" {{ game.image.url }}">
                                 {% endif %}
                                 <div class="image-flash">
-                                    <p class="title">{{ platform.title }}</p>
+                                    <p class="title">{{ game.subgenres }} Forum</p>
                                 </div>
+                                <div class="card-body">
+                                </div>
+                                <a href="{% url 'post' %}" class="post-link">
+                                    <h2 class="card-title">{{ game.name }}</h2>
+                                    <p class="card-text">{{ game.subgenres }}</p>
+                                </a>
+                                <hr />
                             </div>
-                            <a href="#" class="post-link">
-                                <h2 class="card-title">{{ game.name }}</h2>
-                                <p class="card-text">{{ game.subgenres }}</p>
-                            </a>
-                            <hr />
                         </div>
                     </div>
+                    {% if forloop.counter|divisibleby:3 %}
                 </div>
-                {% if forloop.counter|divisibleby:3 %}
-            </div>
-            <div class="row">
-                {% endif %}
-                {% endfor %}
+                <div class="row">
+                    {% endif %}
+                    {% endfor %}
 
+                </div>
             </div>
         </div>
-    </div>
-    {% if is_paginated %}
-    <nav aria-label="Page navigation">
-        <ul class="pagination justify-content-center">
-            {% if page_obj.has_previous %}
-            <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
-            {% endif %}
-            {% if page_obj.has_next %}
-            <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+        {% if is_paginated %}
+        <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center">
+                {% if page_obj.has_previous %}
+                <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
+                {% endif %}
+                {% if page_obj.has_next %}
+                <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
 
-            {% endif %}
-        </ul>
-    </nav>
-    {% endif %}
-</div>
-{%endblock%}
+                {% endif %}
+            </ul>
+        </nav>
+        {% endif %}
+    </div>
+    {%endblock%}
