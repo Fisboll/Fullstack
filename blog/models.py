@@ -41,6 +41,7 @@ class Platform(models.Model):
 class Post(models.Model):
     title = models.CharField(max_length=50)
     subtitle = models.CharField(max_length=100)
+    slug = models.SlugField(max_length=200, unique=True)
     created_by = models.ForeignKey(User, on_delete=models.CASCADE,
                                    related_name='post_user')
     content = models.TextField(max_length=2000)
@@ -65,18 +66,16 @@ class Post(models.Model):
 class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE,
                              related_name='comments')
-    name = models.CharField(max_length=60)
+    name = models.CharField(max_length=80)
+    email = models.EmailField()
     content = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
-    created_by = models.ForeignKey(User, on_delete=models.CASCADE,
-                                   related_name='comment_user')
-    email = models.EmailField()
 
     class Meta:
         ordering = ['created_at']
 
     def __str__(self):
-        return f"comment {self.name} by {self.created_by}"
+        return f"comment {self.content} by {self.name}"
 
 
 class User_profile(models.Model):
